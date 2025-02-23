@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    background: url('background.mp4') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; 
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* background: rgba(0, 0, 0, 0.3);  */
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 80vw;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem;
+}
+
+.card {
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    perspective: 1000px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    outline: none;
+}
+
+.card div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    border-radius: 0.5rem;
+    backface-visibility: hidden;
+    transition: transform 0.4s ease;
+    outline: none;
+}
+
+.card-front {
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    background-color: #333;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card-back {
+    user-select: none;  
+    pointer-events: none; 
+}
+
+
+.card.flipped .card-front {
+    transform: rotateY(0deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(180deg);
+}
+
+#image{
+    height: 300px;
+    width: 300px;
+    border-radius: 0.5rem;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.7rem 2rem;
+    font-size: 1.3rem;
+    border-radius: 0.4rem;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 1rem;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff4500, #ff8c00);
+    transform: scale(1.05);
+}
+
+
+@media screen and (max-width: 1024px) {
+    .cards {
+        max-width: 90vw;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.8rem;
+    }
+
+    .card {
+        height: 5rem;
+        width: 5rem;
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards {
+        max-width: 95vw;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+
+    .card {
+        height: 4.5rem;
+        width: 4.5rem;
+        font-size: 2.3rem;
+    }
+}
+
