@@ -25,7 +25,7 @@ function createCards() {
     flippedCards = [];
     lockBoard = false;
 
-    document.querySelector("h1").innerText = "🎉Memory Card Game🎉";
+    document.querySelector("h1").innerText = "Memory Card Game";
     
     let sfdArr = sfArray(arr);
     
